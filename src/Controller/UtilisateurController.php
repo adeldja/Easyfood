@@ -77,30 +77,22 @@ class UtilisateurController extends AbstractController {
        
         $i = 0;
         while($Bvalider != true && $i<count($nbUtilisatreur) ){
-           
-           
-           
+            
             if ( $unUtilisateurTest->getNom() == $nbUtilisatreur[$i]->getNom() && password_verify($unUtilisateurTest->getMdpU() ,$nbUtilisatreur[$i]->getMdpU() )){
                 $Bvalider = true;
-               
-               
             }
-            $i++;
-           
+            $i++;   
         }
-        if ($Bvalider == true){
+        
+         
+
+        if ($Bvalider == true && $nbUtilisatreur[$i-1]->getStatut() == 1){
+            $_SESSION["id"] = $nbUtilisatreur[$i-1]->getid();
             return $this->redirectToRoute('detail_utilisateur', array('id' => $nbUtilisatreur[$i-1]->getId()));
         }
-             
-       
         return $this->render('/utilisateur/connexion.html.twig', [
-                    'form' => $form->createView(),
-                   
-                   
-        ]);
-       
-       
-       
+                    'form' => $form->createView(),      
+        ]);   
     }
     /**
      * @Route("/utilisateur/deconexion", name="deconnexion_utilisateur")
@@ -109,19 +101,16 @@ class UtilisateurController extends AbstractController {
        
        
        
-        if (!isset($_SESSION)) {
+    if (!isset($_SESSION)) {
         session_start();
     }
-   
-    $MR = $_SESSION["nomM"];
-   
-    unset($_SESSION["nomM"]);
-    unset($_SESSION["mdpU"]);
+    if (isset($_SESSION)) {  
     unset($_SESSION["id"]);
-   
+    }
+     
 
         return $this->render('/utilisateur/deconnexion.html.twig', [
-                    'Mr'=>$MR,
+                    
            
         ]);
   }

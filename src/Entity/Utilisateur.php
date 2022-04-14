@@ -67,6 +67,11 @@ class Utilisateur  {
      */
     protected $commentaireVisible;
     /**
+     * @ORM\Column(type="boolean")
+     * 
+     */
+    protected $statut;
+    /**
      * @ORM\ManyToOne(targetEntity="TypeUtilisateur", inversedBy="lesUtilisateurs",)
      */
     protected $unTU;
@@ -82,6 +87,11 @@ class Utilisateur  {
      * @ORM\OneToMany(targetEntity="Commande", mappedBy="unUtilisateur")
      */
       protected $lesCommandes;
+      /**
+     * @ORM\ManyToMany(targetEntity="TypePLat", inversedBy="lesUtilisateursPreferer",)
+     */
+    protected $unTPPreferer;
+
       
       public function __construct() {
         $this->lesEvaluer = new ArrayCollection();
@@ -150,6 +160,9 @@ class Utilisateur  {
     function getLesRestos() {
         return $this->lesRestos;
     }
+    function getStatut() {
+        return $this->statut;
+    }
 
     
 
@@ -185,6 +198,9 @@ class Utilisateur  {
     function setCommentaireVisible($commentaireVisible): void {
         $this->commentaireVisible = $commentaireVisible;
     }
+    function setStatut($statut):  void {
+        $this->statut = $statut;
+    }
 
     function setUnTU($unTU): void {
         $this->unTU = $unTU;
@@ -215,10 +231,5 @@ class Utilisateur  {
     public function setMdpU(string $mdp){
          $this->MdpU = $mdp;
     }
-    
-    
-    
-
-
 
 }
