@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Detail d'un utilisateur
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Utilisateur {{ unUtilisateur.nom }}</h2> 
+            Nom : {{ unUtilisateur.nom }}<br/>
+            Adresse : {{ unUtilisateur.adr }}<br/>
+            Téléphone : {{ unUtilisateur.tel }}<br/>
+            Note EasyFood : {{ unUtilisateur.noteEasyFood }}<br/>
+            Commentaire EasyFood : {{ unUtilisateur.commentaireEasyFood }}<br/><br/>
+            <a href="{{ path('upd_utilisateur', {id: unUtilisateur.id}) }}"><button class="btn btn-outline-primary">modifier</button></a>
+            <a href="{{ path('del_utilisateur', {id: unUtilisateur.id}) }}"><button class="btn btn-outline-danger">supprimer</button></a> 
+            <a href="{{ path('deconexion_utilisateur', {id: unUtilisateur.id}) }}"><button class="btn btn-outline-danger">deconnecter</button></a>
+        
+
+    </div>
+{% endblock %}

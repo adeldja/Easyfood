@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Detail d'une Commande
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Détail de la Commande :</h2><br>
+            Utilisateur de la commande : {{ uneCommande.unUtilisateur }} <br>
+            <br>Date de la commande du client : {{ uneCommande.dateC |date("d/m/Y")}}<br>
+            <br>Commentaire du client sur la commande : {{ uneCommande.commentaireClientC }}<br>
+            <br>Date de la livraison de la commande : {{ uneCommande.dateLivraisonC |date("d/m/Y") }} <br>
+            <br>Mode de règlement choisis par le client : {{ uneCommande.modeReglementC }} <br>
+            <br>Validation de la commande : {{ uneCommande.valide }} <br>
+             
+
+            <br><a href="{{ path('upd_commande', {id: uneCommande.id}) }}"><button class="btn btn-primary">modifier</button></a>
+            <a href="{{ path('del_commande', {id: uneCommande.id}) }}"><button class="btn btn-danger">supprimer</button></a>
+
+    </div>
+
+
+{% endblock %}

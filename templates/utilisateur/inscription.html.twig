@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block body %}
+
+    <div class="container p-3 my-3 border">
+<h2>Veuillez vous inscrire </h2>
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+    {{ form_label(form.nom,"Nom de l'utilisateur") }} {{ form_widget(form.nom) }}<br/>
+    {{ form_label(form.prenom,"Prenom de l'utilisateur") }} {{ form_widget(form.prenom) }}<br/>
+    {{ form_label(form.adr,"Adresse de l'utilisateur") }} {{ form_widget(form.adr) }}<br/>
+    {{ form_label(form.tel,"Tel de l'utilisateur") }} {{ form_widget(form.tel) }}<br/>
+    {{ form_label(form.noteEasyFood,"Note EasyFood") }} {{ form_widget(form.noteEasyFood) }}<br/>
+    {{ form_label(form.MdpU,"Mot de Passe de l'utilisateur") }} {{ form_widget(form.MdpU) }}<br/>
+    {{ form_label(form.commentaireEasyFood,"Commentaire Utilisateur") }} {{ form_widget(form.commentaireEasyFood) }}<br/>
+    {{ form_label(form.commentaireVisible,"Commentaire Visible ou pas") }} {{ form_widget(form.commentaireVisible) }}<br/>
+    {{ form_label(form.unTU,"Type de l'utilisateur") }} {{ form_widget(form.unTU) }}<br/>
+    
+    <button class="btn btn-outline-primary">Inscription</button>
+{{ form_end(form) }}
+        </div>
+   
+{% endblock %}

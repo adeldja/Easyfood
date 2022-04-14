@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Nouveau Plat
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Ajout d'un Plat</h2>
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+        {{ form_label(form.nomP,"Nom du Plat") }} {{ form_widget(form.nomP) }}<br/>
+        {{ form_label(form.prixFournisseurP,"Prix du Fournisseur") }} {{ form_widget(form.prixFournisseurP) }}<br/>
+        {{ form_label(form.prixClientP,"Prix pour les Clients") }} {{ form_widget(form.prixClientP) }}<br/>
+        {{ form_label(form.platVisible,"Plat visible") }} {{ form_widget(form.platVisible) }}<br/>
+        {{ form_label(form.photoP,"Photo du Plat") }} {{ form_widget(form.photoP) }}<br/>
+        {{ form_label(form.descriptionP,"Description du Plat") }} {{ form_widget(form.descriptionP) }}<br/>
+        {{ form_label(form.leTP,"le type de Cuisine du Plat") }} {{ form_widget(form.leTP) }}<br/>
+        {{ form_label(form.unResto,"Restaurant ou il ya le plat") }} {{ form_widget(form.unResto) }}<br/>
+        
+        
+
+           <button class="btn btn-outline-primary">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des projets
+{% endblock %}
+
+{% block body %}
+            <div class="container p-3 my-3 border">
+
+        <h2>Les Plats</h2>
+    <ul class="list-group">
+    {% for element in lesPlats %}
+        
+        <li class="list-group-item">
+            <a href="{{ path('detail_Plat', {id: element.id}) }}">{{ element.nomP }}</a>  
+        </li>
+
+    {% endfor %}
+    </ul>
+    <br>
+        <a href="{{ path('new_Plat') }}"><button class="btn btn-primary">ajouter</button></a>
+        <a href="{{ path('recherche_Plat') }}"><button class="btn btn-outline-secondary">Rechercher</button></a>
+            </div>
+{% endblock %}{# empty Twig template #}

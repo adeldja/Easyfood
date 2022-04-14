@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des Commandes
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Les Commandes</h2>
+        <ul class="list-group">
+            {% for element in lesCommandes %}
+                <li class="list-group-item"> <a href="{{ path('detail_commande', {id: element.id}) }}
+                  ">Nom de l'utilisateur de la commande : {{ element.unUtilisateur }}<br>
+                    Date de la commande du client : {{ element.dateC |date("d/m/Y")}}<br>
+                    Date de la livraison de la commande : {{ element.dateLivraisonC |date("d/m/Y") }}<br></a>
+                        </li>
+
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{{ path('new_commande') }}"><button class="btn btn-primary">ajouter</button></a>
+    </div>
+{% endblock %}

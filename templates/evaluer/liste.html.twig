@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Commentaire
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Les commentaires</h2>
+        <ul class="list-group">
+            {% for element in lesEvaluer %}
+                <li class="list-group-item"><a href="{{ path('detail_evaluer', {id: element.id}) }}">{{ element.qualite }}</a></li>
+
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{{ path('new_evaluer') }}"><button class="btn btn-primary">ajouter</button></a>
+    </div>
+{% endblock %}

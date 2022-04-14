@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Nouvel Type de Nourriture
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Ajout d'un Type de Nourriture</h2>
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+        {{ form_label(form.libelleTP,"Nom du Type de Nourriture") }} {{ form_widget(form.libelleTP) }}<br/>
+
+           <button class="btn btn-outline-primary">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

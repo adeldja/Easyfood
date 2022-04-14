@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Detail d'une évaluation
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Evaluation n° {{ uneEvaluer.id }}</h2> 
+            Qualité : {{ uneEvaluer.qualite }}<br/>
+            Respect de la recette : {{ uneEvaluer.respectRecette }}<br/>
+            Esthetique : {{ uneEvaluer.esthetique }}<br/>
+            Cout : {{ uneEvaluer.cout }}<br/>
+            Commentaire : {{ uneEvaluer.commentaire }}<br/>
+            CommentaireVisible : {{ uneEvaluer.commentaireVisible }}<br/><br/>
+            <a href="{{ path('upd_evaluer', {id: uneEvaluer.id}) }}"><button class="btn btn-outline-primary">modifier</button></a>
+            <a href="{{ path('del_evaluer', {id: uneEvaluer.id}) }}"><button class="btn btn-outline-danger">supprimer</button></a> 
+        
+
+    </div>
+{% endblock %}
+
+
+
+

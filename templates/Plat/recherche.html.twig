@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher un Plat{% endblock %}
+
+{% block body %}  
+    <h1>Votre recherche</h1>
+
+    <div class="form-group">
+        {{ form_start(form) }}
+        {{ form_label(form.nomP,"Nom du Plat") }} {{ form_widget(form.nomP) }}
+
+        <button class="btn btn-outline-primary">Rechercher</button>
+        {{ form_end(form) }}
+
+        {% if lesPlats  != null %}
+            <ul class="list-group">
+                {% for element in lesPlats %}
+                    <li class="list-group-item"><a href="{{ path('detail_Plat', {id: element.id}) }}">{{ element.nomP }}</a></li>
+
+                {% endfor %}
+
+            </ul>
+        {% else %}
+            aucun
+        {% endif %}
+    </div>
+
+    {% endblock %}

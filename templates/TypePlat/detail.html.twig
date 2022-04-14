@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Detail d'un Type Plat
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>
+            TypePlat {{ unTypePlat.libelleTP }}
+            <a href="{{ path('upd_TypePlat', {id: unTypePlat.id}) }}"><button class="btn btn-outline-primary">modifier</button></a>
+            <a href="{{ path('del_TypePlat', {id: unTypePlat.id}) }}"><button class="btn btn-outline-danger">supprimer</button></a>
+
+        </h2>
+    </div>
+    <div class="container p-3 my-3 border">
+        <h2>Plats du Type de Plat</h2>
+        <ul class="list-group">
+            {% for element in lesPlats %}
+                <li class="list-group-item"><a href="{{ path('detail_Plat', {id: element.id}) }}">{{ element.nomP }} </a></li>
+                {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}{# empty Twig template #}

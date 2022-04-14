@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Nouvelle commande
+{% endblock %}
+
+{% block body %}
+            <div class="container p-3 my-3 border">
+
+    <h2>Création d'une commande</h2>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+        {{ form_label(form.unUtilisateur,'Utilisateur de la commande') }} {{ form_widget(form.unUtilisateur) }}
+        {{ form_label(form.dateC,'Date de la commande du client:') }} {{ form_widget(form.dateC) }}
+        {{ form_label(form.commentaireClientC,'Commentaire du client sur la commande:') }} {{ form_widget(form.commentaireClientC) }}
+        {{ form_label(form.dateLivraisonC ,'Date de la livraison de la commande:') }} {{ form_widget(form.dateLivraisonC) }}
+        {{ form_label(form.modeReglementC,'Mode de règlement choisis par le client:') }} {{ form_widget(form.modeReglementC) }}
+        {{ form_label(form.valide,'Validation de la commande:') }} {{ form_widget(form.valide) }}
+        
+        
+    
+        <br><button class="btn btn-primary">Envoyer</button>
+    {{ form_end(form) }}
+            </div>
+
+{% endblock %}

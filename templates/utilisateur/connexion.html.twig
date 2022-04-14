@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Connexion 
+{% endblock %}
+
+{% block body %}
+
+    <div class="container p-3 my-3 border">
+<h2>connexion</h2>
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+    {{ form_label(form.nomM,"Nom de l'utilisateur") }} {{ form_widget(form.nomM) }}<br/>
+    {{ form_label(form.mdpU,"Mot de passe de l'utilisateur") }} {{ form_widget(form.mdpU) }}<br/>
+
+   <button class="btn btn-outline-primary">Connexion</button>
+{{ form_end(form) }}
+   
+{% endblock %}

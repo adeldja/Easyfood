@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Detail d'un Plat
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>
+            Plat {{ unPlat.nomP }}
+            <a href="{{ path('upd_Plat', {id: unPlat.id}) }}"><button class="btn btn-outline-primary">modifier</button></a>
+            <a href="{{ path('del_Plat', {id: unPlat.id}) }}"><button class="btn btn-outline-danger">supprimer</button></a>
+
+        </h2>
+    </div>
+{% endblock %}{# empty Twig template #}

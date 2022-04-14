@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des projets
+{% endblock %}
+
+{% block body %}
+            <div class="container p-3 my-3 border">
+
+        <h2>Les Types de Plats</h2>
+    
+    {% for element in lesTypesPlats %}
+        
+        <li class="list-group-item">
+            <a href="{{ path('detail_TypePlat', {id: element.id}) }}">{{ element.libelleTP }}</a>  
+        </li> 
+    {% endfor %}
+    
+    <br>
+        <a href="{{ path('new_TypePlat') }}"><button class="btn btn-primary">ajouter</button></a>
+            </div>
+{% endblock %}{# empty Twig template #}

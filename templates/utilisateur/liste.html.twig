@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Utilisateurs
+{% endblock %}
+
+{% block body %}
+    <div class="container p-3 my-3 border">
+
+        <h2>Les utilisateurs</h2>
+        <ul class="list-group">
+            {% for element in lesUtilisateurs %}
+                <li class="list-group-item"><a href="{{ path('detail_utilisateur', {id: element.id}) }}">{{ element.nom }}</a></li>
+
+            {% endfor %}
+            
+        </ul>
+            <br/>
+        <button class="btn btn-outline-primary"><a href= "{{ path('connexion_utilisateur') }}">Connexion</a></button> <br/>
+            <br/>
+            <button class="btn btn-outline-danger"><a href= "{{ path('inscription_utilisateur') }}">Inscription</a></button>
+        <br>
+    </div>
+{% endblock %}
